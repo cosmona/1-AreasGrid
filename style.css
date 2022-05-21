@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 100;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  grid-template-rows: 150px 1fr 1fr minmax(50px, 400px);
+  min-height: 99vh;
+}
+
+body > header {
+  background-color: #c4c4c4;
+  grid-column: 1 /-1;
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+
+section {
+  background-color: white;
+  grid-column: 1 /-1;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+/************************** Seccion Azul Pie */
+.pie {
+  background-color: #73e7f6;
+  grid-column: 1/2;
+  text-align: center;
+}
+
+.pie p {
+  font-size: 1.3rem;
+  margin: 60px auto;
+}
+
+/************************** Seccion Lila Pie2 (sin foto)*/
+.pie2 {
+  background-color: #a2a0f6;
+  grid-column: 2/-1;
+}
+
+img {
+  border-radius: 50%;
+  visibility: hidden;
+  position: absolute;
+}
+
+.pie2 p:nth-child(2) {
+  /*Titulo debajo de foto*/
+  font-size: 2rem;
+}
+
+.pie2 p:not(p:nth-child(2)) {
+  /*Resto */
+  font-size: 1.5rem;
+}
+
+@media (min-width: 1000px) {
+  .contenedor {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 150px 1fr 1fr;
+  }
+
+  .pie {
+    grid-column: 1/-1;
+    display: flex;
+  }
+
+  .pie2 {
+    grid-column: 5/-1;
+    grid-row: 2/4;
+  }
+
+  .pie2 p:nth-child(2) {
+    /*Titulo debajo de foto*/
+    font-size: 4rem;
+  }
+
+  section:first-of-type {
+    grid-column: 1 /3;
+    grid-row: 2/4;
+    margin-bottom: 0;
+    padding: 5rem 0.7rem 3rem 3rem;
+  }
+
+  section:nth-child(3) {
+    grid-column: 3/5;
+    grid-row: 2/4;
+    padding: 5rem 0.7rem 3rem 3rem;
+  }
+
+  figure {
+    text-align: center;
+  }
+  img {
+    visibility: visible;
+    position: relative;
+    width: 200px;
+    box-shadow: 0px 5px 5px gray;
+  }
+}
