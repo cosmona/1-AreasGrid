@@ -10,10 +10,6 @@ html {
   font-weight: 100;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-}
 .contenedor {
   display: grid;
   grid-template-columns: 0.6fr 1fr;
@@ -72,6 +68,7 @@ img {
   border-radius: 50%;
   visibility: hidden;
   position: absolute;
+  display: none;
 }
 
 .pie2 p:nth-child(2) {
@@ -122,6 +119,7 @@ img {
     text-align: center;
   }
   img {
+    display: inline;
     visibility: visible;
     position: relative;
     width: 200px;

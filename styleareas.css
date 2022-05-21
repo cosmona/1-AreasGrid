@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 100;
+}
+
+.contenedor {
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  grid-template-rows: 150px 1fr 1fr minmax(50px, 400px);
+  min-height: 99vh;
+}
+
+.contenedor > header {
+  background-color: #c4c4c4;
+  grid-column: 1 /-1;
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+
+section {
+  background-color: white;
+  grid-column: 1 /-1;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+/************************** Seccion Azul Pie */
+.pie {
+  background-color: #73e7f6;
+  grid-column: 1/2;
+  text-align: center;
+}
+
+.pie p {
+  font-size: 1.3rem;
+  margin: 60px auto;
+}
+/************************** Seccion Lila Pie2 (sin foto)*/
+.pie2 {
+  background-color: #a2a0f6;
+  grid-column: 2/-1;
+}
