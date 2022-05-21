@@ -10,23 +10,15 @@ html {
 }
 
 .contenedor {
+  min-height: 100vh;
   display: grid;
-  grid-template-columns: 0.6fr 1fr;
-  grid-template-rows: 150px 1fr 1fr minmax(50px, 400px);
-  min-height: 99vh;
-}
-
-.contenedor > header {
-  background-color: #c4c4c4;
-  grid-column: 1 /-1;
-  text-align: center;
-  border-bottom: 2px solid black;
-}
-
-section {
-  background-color: white;
-  grid-column: 1 /-1;
-  padding: 1rem;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(4, auto);
+  grid-template-areas:
+    "header_1       header_1"
+    "contenido_1    contenido_1"
+    "contenido_2    contenido_2"
+    "pie        pie2";
 }
 
 h1 {
@@ -40,24 +32,100 @@ h2 {
   font-weight: 500;
 }
 
+.contenedor > header {
+  background-color: #c4c4c4;
+  grid-area: header_1;
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+
+section {
+  background-color: white;
+  padding: 1rem;
+}
+
+#seccion1 {
+  grid-area: contenido_1;
+}
+
+#seccion2 {
+  grid-area: contenido_2;
+}
+
 p {
   margin-bottom: 15px;
   font-size: 1rem;
 }
 
-/************************** Seccion Azul Pie */
 .pie {
   background-color: #73e7f6;
-  grid-column: 1/2;
+  grid-area: pie;
   text-align: center;
 }
-
 .pie p {
   font-size: 1.3rem;
   margin: 60px auto;
 }
-/************************** Seccion Lila Pie2 (sin foto)*/
+
 .pie2 {
   background-color: #a2a0f6;
-  grid-column: 2/-1;
+  grid-area: pie2;
+}
+
+img {
+  border-radius: 50%;
+  visibility: hidden;
+  position: absolute;
+  display: none;
+}
+
+.pie2 p:first-of-type {
+  /*Titulo debajo de foto*/
+  font-size: 2rem;
+}
+
+.pie2 p:not(p:first-of-type) {
+  /*Titulo debajo de foto*/
+  font-size: 2rem;
+}
+
+@media (min-width: 1000px) {
+  .contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr minmax(150px, 400px);
+    grid-template-rows: 150px 1fr 150px;
+    grid-template-areas:
+      "header_1 header_1 header_1"
+      "contenido_1 contenido_2 pie2"
+      "pie pie pie";
+  }
+
+  .pie {
+    display: flex;
+  }
+
+  .pie2 p:first-of-type {
+    font-size: 3rem;
+  }
+
+  img {
+    display: inline;
+    visibility: visible;
+    position: relative;
+    width: 200px;
+    box-shadow: 0px 5px 5px gray;
+  }
+
+  section:first-of-type {
+    margin-bottom: 0;
+    padding: 5rem 0.7rem 3rem 3rem;
+  }
+
+  section:nth-child(3) {
+    padding: 5rem 0.7rem 3rem 3rem;
+  }
+
+  figure {
+    text-align: center;
+  }
 }
